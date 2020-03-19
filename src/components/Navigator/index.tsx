@@ -10,6 +10,7 @@ import {
 } from '@material-ui/core';
 import { Link, useLocation } from 'react-router-dom';
 import { useStyles } from './styles';
+import { BaseCSSProperties, makeStyles } from '@material-ui/styles';
 
 type CategoriesType = {
   id: string;
@@ -20,17 +21,22 @@ type CategoriesType = {
   children?: CategoriesType[];
 };
 
+export type NavigatorStyleProps = {
+  [Name in keyof ReturnType<typeof useStyles>]+?: BaseCSSProperties;
+};
+
 export type NavigatorProps = {
   position: 'left' | 'top';
   categories: CategoriesType[];
   logo: React.ReactNode;
-  classes?: any;
+  classes?: NavigatorStyleProps;
   homePath: string;
 };
 
 type NavigatorItemProps = {
   pathname: string;
-} & Omit<NavigatorProps, 'position'>;
+  classes: Partial<ReturnType<typeof useStyles>>;
+} & Omit<NavigatorProps, 'position' | 'classes'>;
 
 const LeftNavigator = ({
   logo,
@@ -115,14 +121,8 @@ const TopNavigator = ({
                       selected: classes.listItemSelected,
                     }}
                   >
-                    {icon && (
-                      <ListItemIcon className={classes.itemIcon}>
-                        {icon}
-                      </ListItemIcon>
-                    )}
-                    <ListItemText classes={{ root: classes.listItemTextRoot }}>
-                      {childId}
-                    </ListItemText>
+                    {icon && <ListItemIcon>{icon}</ListItemIcon>}
+                    <ListItemText>{childId}</ListItemText>
                   </ListItem>
                 );
               })}
@@ -138,9 +138,13 @@ const Navigator = ({
   logo,
   categories = [],
   homePath,
-  classes: classList,
+  classes: classList = {},
 }: NavigatorProps): React.ReactElement => {
-  const classes = useStyles({ classes: classList });
+  const usePropStyles = React.useMemo(() => makeStyles(classList as any), [
+    classList,
+  ]);
+  const propStyles = usePropStyles();
+  const classes = useStyles({ classes: propStyles });
   const { pathname } = useLocation();
   return position === 'left' ? (
     <LeftNavigator

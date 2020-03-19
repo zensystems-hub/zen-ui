@@ -2,40 +2,27 @@ import React, { ReactNode } from 'react';
 import Navigator from './index';
 import StoryRouter from 'storybook-react-router';
 import { muiTheme } from 'storybook-addon-material-ui';
-import darkTheme from 'theme/dark';
-import { createStyles, makeStyles } from '@material-ui/core/styles';
+import defaultTheme from 'theme/default';
 import { categories } from 'sample_data/categories';
 
 export default {
-  title: 'navigation/Navigator',
+  title: 'components/Navigator',
   component: Navigator,
-  decorators: [StoryRouter(), muiTheme([darkTheme])],
+  decorators: [StoryRouter(), muiTheme([defaultTheme])],
 };
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    drawerPaper: {
-      backgroundColor: '#18202c',
-    },
-    listRoot: {
-      width: 500,
-    },
-    listItemIconRoot: {
-      marginRight: 12,
-    },
-    leftNavigatorLogo: {
-      height: 200,
-    },
-    testClass: {},
-  }),
-);
-
 export const Left = (): ReactNode => {
-  const classes = useStyles();
   return (
     <Navigator
       position="left"
-      classes={classes}
+      classes={{
+        drawerPaper: {
+          backgroundColor: '#18202c',
+        },
+        listItemRoot: {
+          color: '#eee',
+        },
+      }}
       categories={categories}
       logo={
         <span>
@@ -47,11 +34,10 @@ export const Left = (): ReactNode => {
 };
 
 export const Top = (): ReactNode => {
-  const classes = useStyles();
   return (
     <Navigator
       position="top"
-      classes={classes}
+      classes={{}}
       categories={categories}
       logo={
         <span>

@@ -1,0 +1,1 @@
+export declare const useStyles: (props?: any) => Record<"drawerPaper" | "listRoot" | "topListRoot" | "listItemRoot" | "listItemSelected" | "leftNavigatorLogo" | "topNavigatorLogo" | "listItemIconRoot" | "listItemTextPrimary", string>;

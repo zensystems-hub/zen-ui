@@ -20,7 +20,7 @@ export const useStyles = makeStyles((theme: Theme) =>
     listItemRoot: {
       paddingTop: theme.spacing(3),
       paddingBottom: theme.spacing(3),
-      color: 'rgba(255, 255, 255, 0.7)',
+      color: theme.palette.text.primary,
       '&:hover,&:focus': {
         backgroundColor: 'rgba(255, 255, 255, 0.08)',
       },
