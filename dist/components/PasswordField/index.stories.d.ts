@@ -1,7 +1,7 @@
 import React from 'react';
 declare const _default: {
     title: string;
-    decorators: ((...args: any) => any)[];
+    decorators: import("@storybook/addons").DecoratorFunction<{}>[];
     component: React.FC<import("@material-ui/core").TextFieldProps>;
 };
 export default _default;

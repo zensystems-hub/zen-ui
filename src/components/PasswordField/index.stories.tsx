@@ -1,12 +1,12 @@
 import React, { ReactNode } from 'react';
 import PasswordField from './index';
-import { text, withKnobs } from '@storybook/addon-knobs';
+import { text } from '@storybook/addon-knobs';
 import { muiTheme } from 'storybook-addon-material-ui';
 import darkTheme from 'theme/dark';
 
 export default {
   title: 'components|PasswordField',
-  decorators: [withKnobs, muiTheme([darkTheme])],
+  decorators: [muiTheme([darkTheme])],
   component: PasswordField,
 };
 

@@ -5,7 +5,6 @@ import { boolean, text } from '@storybook/addon-knobs';
 import { muiTheme } from 'storybook-addon-material-ui';
 import darkTheme from 'theme/dark';
 import Signup from './index';
-import * as Logo from 'views/Login/images/logo.png';
 
 export default {
   title: 'views|Signup',
@@ -20,11 +19,15 @@ export const Main = (): ReactNode => {
   return (
     <Signup
       logo={
-        <img src={Logo} alt="login" style={{ width: 300, marginRight: -20 }} />
+        <img
+          src="/assets/images/logo.png"
+          alt="logo"
+          style={{ width: 300, marginRight: -20 }}
+        />
       }
       onSubmit={action('onSubmit')}
       loading={loading}
-      goLogin={linkTo('views/Login')}
+      goLogin={linkTo('views|Login')}
       message={message}
       validateUsername={action('validateUsername')}
       usernameErrorMessage={error}
@@ -38,11 +41,15 @@ export const hasExtraField = (): ReactNode => {
   return (
     <Signup
       logo={
-        <img src={Logo} alt="login" style={{ width: 300, marginRight: -20 }} />
+        <img
+          src="/assets/images/logo.png"
+          alt="logo"
+          style={{ width: 300, marginRight: -20 }}
+        />
       }
       onSubmit={action('onSubmit')}
       loading={loading}
-      goLogin={linkTo('views/Login')}
+      goLogin={linkTo('views|Login')}
       message={message}
       validateUsername={action('validateUsername')}
       extraFieldsInfo={[

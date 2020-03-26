@@ -1,11 +1,24 @@
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 
-export const useStyles = makeStyles((theme: Theme) =>
+export const drawerWidth = 256;
+
+export const useLeftStyles = makeStyles((theme: Theme) =>
   createStyles({
     drawerPaper: {
       backgroundColor: theme.palette.background.default,
     },
-
+    // drawer: {
+    //   [theme.breakpoints.up('sm')]: {
+    //     width: drawerWidth,
+    //     flexShrink: 0,
+    //   },
+    // },
+    // unDrawer: {
+    //   [theme.breakpoints.up('sm')]: {
+    //     width: 0,
+    //     flexShrink: 0,
+    //   },
+    // },
     listRoot: {
       padding: theme.spacing(3, 0),
       width: 300,
@@ -53,6 +66,45 @@ export const useStyles = makeStyles((theme: Theme) =>
     listItemTextPrimary: {
       fontSize: 'inherit',
       fontWeight: theme.typography.fontWeightMedium,
+    },
+  }),
+);
+
+export const useTopStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    listItemRoot: {
+      justifyContent: 'center',
+    },
+    listItemTextRoot: {
+      flex: 'inherit',
+    },
+    listItemSelected: {
+      color: theme.palette.primary.light,
+      '& .MuiListItemText-primary': {
+        fontWeight: 700,
+      },
+    },
+    itemIcon: {
+      minWidth: 'auto',
+      marginRight: theme.spacing(3),
+      marginTop: theme.spacing(-1),
+    },
+    iconButtonAvatar: {
+      color: theme.palette.common.white,
+    },
+    userInfo: {
+      [theme.breakpoints.down('lg')]: {
+        display: 'none',
+      },
+      display: 'flex',
+      position: 'absolute',
+      right: 40,
+      '& > .username': {
+        marginLeft: 5,
+        lineHeight: '23px',
+        // color: theme.palette.primary.light,
+        fontWeight: 'bold',
+      },
     },
   }),
 );

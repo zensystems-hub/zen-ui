@@ -4,16 +4,17 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
+require('../../tslib.es6-529ef648.js');
 var React = require('react');
 var React__default = _interopDefault(React);
 var core = require('@material-ui/core');
-var styles$1 = require('@material-ui/styles');
-var index$2 = require('../../components/PasswordField/index.js');
+var styles = require('@material-ui/styles');
 require('@material-ui/core/TextField');
 require('@material-ui/core/IconButton');
 require('@material-ui/core/InputAdornment');
 require('@material-ui/icons/Visibility');
 require('@material-ui/icons/VisibilityOff');
+var index$2 = require('../../components/PasswordField/index.js');
 var reactHookForm = require('react-hook-form');
 var icons = require('@material-ui/icons');
 
@@ -65,7 +66,7 @@ var useStyles = core.makeStyles(function (theme) {
 
 function Login(_a) {
     var logo = _a.logo, onSubmit = _a.onSubmit, loading = _a.loading, refreshCaptcha = _a.refreshCaptcha, captchaImage = _a.captchaImage, goSignUp = _a.goSignUp, message = _a.message, _b = _a.classes, classList = _b === void 0 ? {} : _b;
-    var usePropStyles = React__default.useMemo(function () { return styles$1.makeStyles(classList); }, [
+    var usePropStyles = React__default.useMemo(function () { return styles.makeStyles(classList); }, [
         classList,
     ]);
     var propStyles = usePropStyles();

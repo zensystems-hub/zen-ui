@@ -75,6 +75,7 @@ export default function RouterBreadcrumbs({
                     </Link>
                   );
                 }
+                return false;
               })}
             </Breadcrumbs>
           );

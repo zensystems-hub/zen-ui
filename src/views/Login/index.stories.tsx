@@ -5,8 +5,6 @@ import { boolean, text } from '@storybook/addon-knobs';
 import { muiTheme } from 'storybook-addon-material-ui';
 import darkTheme from 'theme/dark';
 import Login from './index';
-import * as Captcha from './images/captcha.png';
-import * as Logo from './images/logo.png';
 
 export default {
   title: 'views|Login',
@@ -20,13 +18,17 @@ export const withCaptcha = (): ReactNode => {
   return (
     <Login
       logo={
-        <img src={Logo} alt="login" style={{ width: 300, marginRight: -20 }} />
+        <img
+          src="/assets/images/logo.png"
+          alt="logo"
+          style={{ width: 300, marginRight: -20 }}
+        />
       }
       onSubmit={action('onSubmit')}
       loading={loading}
-      goSignUp={linkTo('views/Signup')}
+      goSignUp={linkTo('views|Signup')}
       refreshCaptcha={action('refreshCaptcha')}
-      captchaImage={Captcha}
+      captchaImage={'/assets/images/captcha.png'}
       message={message}
     />
   );
