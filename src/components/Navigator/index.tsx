@@ -14,9 +14,9 @@ import { BaseCSSProperties, makeStyles } from '@material-ui/styles';
 
 type CategoriesType = {
   id: string;
+  text: string;
   icon?: React.ReactElement;
   path: string;
-  level?: number;
   component?: React.FC;
   children?: CategoriesType[];
 };
@@ -51,39 +51,27 @@ const LeftNavigator = ({
         {logo}
       </Link>
       <List classes={{ root: classes.listRoot }} disablePadding>
-        {categories.map(({ id, children, path: parentPath }) => (
-          <React.Fragment key={id}>
-            {children &&
-              children.map(({ id: childId, icon, path }) => {
-                const toPath = `${parentPath}/${path}`;
-                return (
-                  <ListItem
-                    button
-                    key={path}
-                    component={Link}
-                    to={toPath}
-                    selected={pathname === toPath}
-                    classes={{
-                      root: classes.listItemRoot,
-                      selected: classes.listItemSelected,
-                    }}
-                  >
-                    {icon && (
-                      <ListItemIcon
-                        classes={{ root: classes.listItemIconRoot }}
-                      >
-                        {icon}
-                      </ListItemIcon>
-                    )}
-                    <ListItemText
-                      classes={{ primary: classes.listItemTextPrimary }}
-                    >
-                      {childId}
-                    </ListItemText>
-                  </ListItem>
-                );
-              })}
-          </React.Fragment>
+        {categories.map(({ id, text, icon, path }) => (
+          <ListItem
+            button
+            key={id}
+            component={Link}
+            to={path}
+            selected={pathname === path}
+            classes={{
+              root: classes.listItemRoot,
+              selected: classes.listItemSelected,
+            }}
+          >
+            {icon && (
+              <ListItemIcon classes={{ root: classes.listItemIconRoot }}>
+                {icon}
+              </ListItemIcon>
+            )}
+            <ListItemText classes={{ primary: classes.listItemTextPrimary }}>
+              {text}
+            </ListItemText>
+          </ListItem>
         ))}
       </List>
       <Divider />
@@ -104,29 +92,21 @@ const TopNavigator = ({
         {logo}
       </Link>
       <List classes={{ root: classes.topListRoot }}>
-        {categories.map(({ id, children, path: parentPath }) => (
-          <React.Fragment key={id}>
-            {children &&
-              children.map(({ id: childId, icon, path }) => {
-                const toPath = `${parentPath}/${path}`;
-                return (
-                  <ListItem
-                    button
-                    key={path}
-                    component={Link}
-                    to={toPath}
-                    selected={pathname === toPath}
-                    classes={{
-                      root: classes.listItemRoot,
-                      selected: classes.listItemSelected,
-                    }}
-                  >
-                    {icon && <ListItemIcon>{icon}</ListItemIcon>}
-                    <ListItemText>{childId}</ListItemText>
-                  </ListItem>
-                );
-              })}
-          </React.Fragment>
+        {categories.map(({ id, icon, text, children, path }) => (
+          <ListItem
+            key={id}
+            button
+            component={Link}
+            to={path}
+            selected={pathname === path}
+            classes={{
+              root: classes.listItemRoot,
+              selected: classes.listItemSelected,
+            }}
+          >
+            {icon && <ListItemIcon>{icon}</ListItemIcon>}
+            <ListItemText>{text}</ListItemText>
+          </ListItem>
         ))}
       </List>
     </Container>

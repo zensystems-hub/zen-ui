@@ -8,7 +8,7 @@ import Signup from './index';
 import * as Logo from 'views/Login/images/logo.png';
 
 export default {
-  title: 'views/Signup',
+  title: 'views|Signup',
   component: Signup,
   decorators: [muiTheme([darkTheme])],
 };

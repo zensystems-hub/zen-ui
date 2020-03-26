@@ -6,7 +6,7 @@ import defaultTheme from 'theme/default';
 import { categories } from 'sample_data/categories';
 
 export default {
-  title: 'components/Navigator',
+  title: 'components|Navigator',
   component: Navigator,
   decorators: [StoryRouter(), muiTheme([defaultTheme])],
 };

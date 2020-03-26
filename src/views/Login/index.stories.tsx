@@ -9,7 +9,7 @@ import * as Captcha from './images/captcha.png';
 import * as Logo from './images/logo.png';
 
 export default {
-  title: 'views/Login',
+  title: 'views|Login',
   component: Login,
   decorators: [muiTheme([darkTheme])],
 };
