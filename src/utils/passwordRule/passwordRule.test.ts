@@ -1,10 +1,9 @@
-import {
+import checkValidPassword, {
   continueChar,
   checkSimbolChar,
   checkPasswordRule,
   compareUserid,
   checksameChar,
-  checkValidPassword,
 } from '../passwordRule';
 
 describe('KT 보안성 검토 비밀번호 규칙을 준수해야 한다.', () => {
