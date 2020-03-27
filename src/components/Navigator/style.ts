@@ -6,22 +6,14 @@ export const useLeftStyles = makeStyles((theme: Theme) =>
   createStyles({
     drawerPaper: {
       backgroundColor: theme.palette.background.default,
+      '& .MuiDrawer-paperAnchorDockedLeft': {
+        backgroundColor: theme.palette.secondary.main,
+        boxShadow:
+          '0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12)',
+      },
     },
-    // drawer: {
-    //   [theme.breakpoints.up('sm')]: {
-    //     width: drawerWidth,
-    //     flexShrink: 0,
-    //   },
-    // },
-    // unDrawer: {
-    //   [theme.breakpoints.up('sm')]: {
-    //     width: 0,
-    //     flexShrink: 0,
-    //   },
-    // },
     listRoot: {
-      padding: theme.spacing(3, 0),
-      width: 300,
+      width: 256,
     },
 
     topListRoot: {
@@ -40,12 +32,14 @@ export const useLeftStyles = makeStyles((theme: Theme) =>
     },
 
     listItemSelected: {
-      color: '#4fc3f7',
+      fontWeight: 700,
+      color: theme.palette.common.white,
+      backgroundColor: theme.palette.secondary.light,
+      borderLeft: `4px solid ${theme.palette.primary.main}`,
     },
 
-    leftNavigatorLogo: {
+    logoContainer: {
       fontSize: 24,
-      height: 80,
       display: 'flex',
       cursor: 'pointer',
       alignItems: 'center',
@@ -53,6 +47,7 @@ export const useLeftStyles = makeStyles((theme: Theme) =>
       fontFamily: 'DroidSans',
       color: theme.palette.primary.main,
       textDecoration: 'none',
+      height: 150,
     },
 
     topNavigatorLogo: {},
@@ -83,6 +78,16 @@ export const useTopStyles = makeStyles((theme: Theme) =>
       '& .MuiListItemText-primary': {
         fontWeight: 700,
       },
+    },
+    logoContainer: {
+      fontSize: 24,
+      display: 'flex',
+      cursor: 'pointer',
+      alignItems: 'baseline',
+      fontFamily: 'DroidSans',
+      fontWeight: 'bold',
+      padding: theme.spacing(3, 5, 0.5, 7),
+      color: theme.palette.primary.main,
     },
     itemIcon: {
       minWidth: 'auto',

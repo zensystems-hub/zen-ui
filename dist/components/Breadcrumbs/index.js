@@ -35,7 +35,7 @@ var useStyles = styles$1.makeStyles(function () {
     });
 });
 function RouterBreadcrumbs(_a) {
-    var _b = _a.hasHome, hasHome = _b === void 0 ? true : _b, pathMap = _a.pathMap;
+    var hasHome = _a.hasHome, pathMap = _a.pathMap;
     var classes = useStyles();
     return (React__default.createElement("div", { className: classes.root },
         React__default.createElement(reactRouter.Route, null, function (_a) {
@@ -56,6 +56,9 @@ function RouterBreadcrumbs(_a) {
                 })));
         })));
 }
+RouterBreadcrumbs.defaultProps = {
+    hasHome: true,
+};
 
 exports.default = RouterBreadcrumbs;
 //# sourceMappingURL=index.js.map

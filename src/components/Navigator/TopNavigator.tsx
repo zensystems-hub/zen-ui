@@ -9,7 +9,7 @@ import {
 } from '@material-ui/core';
 import { Link, useLocation } from 'react-router-dom';
 import { CategoriesType } from 'components/Navigator/index';
-import { useTopStyles } from 'components/Navigator/styles';
+import { useTopStyles } from 'components/Navigator/style';
 import { BaseCSSProperties, makeStyles } from '@material-ui/styles';
 
 type TopNavigatorStyleProps = {
@@ -27,7 +27,8 @@ function TopNavigator({
   logo,
   categories = [],
   homePath,
-  classes: classList,
+  classes: classList = {},
+  children,
   ...other
 }: NavigatorProps): React.ReactElement {
   const usePropStyles = React.useMemo(() => makeStyles(classList as any), [
@@ -37,29 +38,38 @@ function TopNavigator({
   const classes = useTopStyles({ classes: propStyles });
   const { pathname } = useLocation();
   return (
-    <Container maxWidth="lg" {...other}>
-      <List style={{ display: 'flex' }}>
-        <ListItem component={Link} to={homePath}>
-          {logo}
-        </ListItem>
-        {categories.map(({ id, icon, text, children, path }) => (
+    <>
+      <Container maxWidth="lg" {...other}>
+        <List style={{ display: 'flex' }}>
           <ListItem
-            key={id}
-            button
             component={Link}
-            to={path}
-            selected={pathname === path}
-            classes={{
-              root: classes.listItemRoot,
-              selected: classes.listItemSelected,
-            }}
+            to={homePath}
+            className={classes.logoContainer}
           >
-            {icon && <ListItemIcon>{icon}</ListItemIcon>}
-            <ListItemText>{text}</ListItemText>
+            {logo}
           </ListItem>
-        ))}
-      </List>
-    </Container>
+          {categories.map(({ id, icon, text, children, path }) => (
+            <ListItem
+              key={id}
+              button
+              component={Link}
+              to={path}
+              selected={pathname === `/${path}`}
+              classes={{
+                root: classes.listItemRoot,
+                selected: classes.listItemSelected,
+              }}
+            >
+              {icon && (
+                <ListItemIcon className={classes.itemIcon}>{icon}</ListItemIcon>
+              )}
+              <ListItemText>{text}</ListItemText>
+            </ListItem>
+          ))}
+        </List>
+        {children}
+      </Container>
+    </>
   );
 }
 

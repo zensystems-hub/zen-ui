@@ -15,7 +15,7 @@ require('@material-ui/core/IconButton');
 require('@material-ui/core/InputAdornment');
 require('@material-ui/icons/Visibility');
 require('@material-ui/icons/VisibilityOff');
-var index$2 = require('../../components/PasswordField/index.js');
+var index$4 = require('../../components/PasswordField/index.js');
 var reactHookForm = require('react-hook-form');
 var Paper = _interopDefault(require('@material-ui/core/Paper'));
 var FormControl = _interopDefault(require('@material-ui/core/FormControl'));
@@ -117,13 +117,13 @@ function Signup(_a) {
                             return /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(value);
                         },
                     }), label: "\uC774\uBA54\uC77C", name: "email", fullWidth: true }),
-                React__default.createElement(index$2.default, { margin: "normal", variant: "outlined", name: "password", label: "\uBE44\uBC00\uBC88\uD638", autoComplete: "off", inputProps: { autoComplete: 'new-password' }, inputRef: register({
+                React__default.createElement(index$4.default, { margin: "normal", variant: "outlined", name: "password", label: "\uBE44\uBC00\uBC88\uD638", autoComplete: "off", inputProps: { autoComplete: 'new-password' }, inputRef: register({
                         required: true,
                         validate: {
                             invalid: function (value) { return checkPassword(value); },
                         },
                     }), onChange: function () { return triggerValidation('password'); }, error: !!formErrors.password, helperText: formErrors.password && passwordErrorMessage, fullWidth: true }),
-                React__default.createElement(index$2.default, { margin: "normal", variant: "outlined", name: "passwordConfirm", label: "\uBE44\uBC00\uBC88\uD638 \uD655\uC778", inputRef: register({
+                React__default.createElement(index$4.default, { margin: "normal", variant: "outlined", name: "passwordConfirm", label: "\uBE44\uBC00\uBC88\uD638 \uD655\uC778", inputRef: register({
                         required: true,
                         validate: function (value) { return value === password; },
                     }), onChange: function () {

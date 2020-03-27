@@ -39,10 +39,7 @@ type props = {
   pathMap: { [key: string]: string };
 };
 
-export default function RouterBreadcrumbs({
-  hasHome = true,
-  pathMap,
-}: props): React.ReactElement {
+function RouterBreadcrumbs({ hasHome, pathMap }: props): React.ReactElement {
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -84,3 +81,9 @@ export default function RouterBreadcrumbs({
     </div>
   );
 }
+
+RouterBreadcrumbs.defaultProps = {
+  hasHome: true,
+};
+
+export default RouterBreadcrumbs;

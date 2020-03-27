@@ -5,5 +5,10 @@ declare type props = {
         [key: string]: string;
     };
 };
-export default function RouterBreadcrumbs({ hasHome, pathMap, }: props): React.ReactElement;
-export {};
+declare function RouterBreadcrumbs({ hasHome, pathMap }: props): React.ReactElement;
+declare namespace RouterBreadcrumbs {
+    var defaultProps: {
+        hasHome: boolean;
+    };
+}
+export default RouterBreadcrumbs;

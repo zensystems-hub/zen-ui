@@ -15,9 +15,9 @@ export default {
 
 export const RouterBreadcrumbs = (): ReactNode => {
   const pathMap = convertCategoriesMap([...categories], 'path', 'text');
-  console.log(pathMap);
   return (
     <>
+      <Breadcrumbs pathMap={pathMap} hasHome />
       <ul>
         <li>
           <Link to="/dashboard">대시보드</Link>
@@ -49,7 +49,6 @@ export const RouterBreadcrumbs = (): ReactNode => {
           <Link to="/work-management">이력 관리</Link>
         </li>
       </ul>
-      <Breadcrumbs pathMap={pathMap} />
     </>
   );
 };

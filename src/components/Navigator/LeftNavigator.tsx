@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Divider,
   Drawer,
   DrawerProps,
   List,
@@ -11,7 +10,7 @@ import {
 import { Link, useLocation } from 'react-router-dom';
 import { CategoriesType } from 'components/Navigator/index';
 import { BaseCSSProperties, makeStyles } from '@material-ui/styles';
-import { useLeftStyles } from 'components/Navigator/styles';
+import { useLeftStyles } from 'components/Navigator/style';
 
 type LeftNavigatorStyleProps = {
   [Name in keyof ReturnType<typeof useLeftStyles>]+?: BaseCSSProperties;
@@ -28,7 +27,8 @@ function LeftNavigator({
   logo,
   categories = [],
   homePath,
-  classes: classList,
+  classes: classList = {},
+  children,
   ...other
 }: NavigatorProps): React.ReactElement {
   const usePropStyles = React.useMemo(() => makeStyles(classList as any), [
@@ -39,17 +39,17 @@ function LeftNavigator({
   const { pathname } = useLocation();
   return (
     <Drawer classes={{ paper: classes.drawerPaper }} {...other}>
-      <Link className={classes.leftNavigatorLogo} to={homePath}>
-        {logo}
-      </Link>
       <List classes={{ root: classes.listRoot }} disablePadding>
+        <ListItem className={classes.logoContainer}>
+          <Link to={homePath}>{logo}</Link>
+        </ListItem>
         {categories.map(({ id, text, icon, path }) => (
           <ListItem
             button
             key={id}
             component={Link}
             to={path}
-            selected={pathname === path}
+            selected={pathname === `/${path}`}
             classes={{
               root: classes.listItemRoot,
               selected: classes.listItemSelected,
@@ -66,7 +66,7 @@ function LeftNavigator({
           </ListItem>
         ))}
       </List>
-      <Divider />
+      {children}
     </Drawer>
   );
 }
