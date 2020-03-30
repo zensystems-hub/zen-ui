@@ -6,3 +6,4 @@ declare const _default: {
 };
 export default _default;
 export declare const Default: () => React.ReactNode;
+export declare const Dark: () => React.ReactNode;

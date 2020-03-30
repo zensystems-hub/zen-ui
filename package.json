@@ -1,6 +1,11 @@
 {
   "name": "@zen/ui",
   "version": "0.1.0",
+  "description": "zensystems에서 사용하는 React UI Component",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zensystems-hub/zen-ui"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "peerDependencies": {
@@ -102,5 +107,8 @@
       "last 1 safari version"
     ]
   },
-  "dependencies": {}
+  "dependencies": {},
+  "files": [
+    "dist"
+  ]
 }

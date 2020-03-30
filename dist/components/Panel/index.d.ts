@@ -1,6 +1,6 @@
 import React from 'react';
 import { CardProps } from '@material-ui/core/Card';
-declare type PanelProps = {
+export declare type PanelProps = {
     title?: React.ReactNode;
     collapsible: boolean;
     refreshable: boolean;
