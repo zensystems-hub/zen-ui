@@ -231,9 +231,9 @@ echarts.registerTheme('dark', {
       },
     },
   },
-  bar: {
-    barCategoryGap: '40%',
-  },
+  // bar: {
+  //   barCategoryGap: '40%',
+  // },
   gauge: {
     axisLine: {
       show: true,

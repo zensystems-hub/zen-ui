@@ -10,7 +10,7 @@ import Collapse from '@material-ui/core/Collapse';
 import { Sync } from '@material-ui/icons';
 import { useStyles } from './style';
 
-type PanelProps = {
+export type PanelProps = {
   title?: React.ReactNode;
   collapsible: boolean;
   refreshable: boolean;

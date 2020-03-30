@@ -16,7 +16,7 @@ export const Default = (): ReactNode => {
   const body = text('content', 'hello world!!');
   return (
     <Grid style={{ padding: 20 }} container spacing={5}>
-      <Grid item xs={4}>
+      <Grid item xs={6}>
         <Panel
           title={
             <Title
